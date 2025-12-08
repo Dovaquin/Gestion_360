@@ -1,5 +1,6 @@
 export interface Product {
   id: string;
+  user_id: string; // Added for Supabase RLS
   name: string;
   sku: string;
   stock: number;
@@ -9,6 +10,7 @@ export interface Product {
 
 export interface Customer {
   id: string;
+  user_id: string; // Added for Supabase RLS
   name: string;
   debt: number;
   imageUrl: string;
@@ -21,11 +23,12 @@ export enum TransactionType {
 
 export interface Transaction {
   id: string;
+  user_id: string; // Added for Supabase RLS
   type: TransactionType;
   description: string;
   amount: number;
   date: string; // ISO String
-  customerId?: string;
+  customerId?: string; // Optional, can be null
 }
 
 export interface UserPermissions {
